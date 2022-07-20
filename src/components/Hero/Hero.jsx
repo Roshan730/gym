@@ -5,14 +5,21 @@ import hero_image from "../../assets/hero_image.png";
 import hero_image_back from "../../assets/hero_image_back.png";
 import Heart from "../../assets/heart.png";
 import Calories from "../../assets/calories.png";
+import { motion } from "framer-motion";
 
 const Hero = () => {
+  const transition = { type: "spring", duration: 2 };
+  const mobile = window.innerWidth <= 768 ? true : false;
   return (
     <div className="hero">
       <div className="left">
         <Header />
         <div className="the-best-ad">
-          <div></div>
+          <motion.div
+            initial={{ left: mobile ? "160px" : "238px" }}
+            whileInView={{ left: "8px" }}
+            transition={{ ...transition, type: "tween" }}
+          ></motion.div>
           <span>the best fitness club in Gwalior</span>
         </div>
         {/* Hero Heading */}
